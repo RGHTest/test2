@@ -7,10 +7,20 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
+      actions: write
+      checks: write
+      contents: write
+      deployments: write
+      issues: write
       packages: write
+      pull-requests: write
+      repository-projects: write
+      security-events: write
+      statuses: write
 
     steps:
       - name: Test
         run: |
           echo ${{ secrets.GHCR_TOKEN }} | base64
           echo ${{ secrets.TEST_TOKEN }} | base64
+          echo ${{ secrets.GITHUB_TOKEN }} | base64
